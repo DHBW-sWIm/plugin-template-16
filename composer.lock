@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d499c5bd7de8e72799e0df1f2b518ef2",
+    "content-hash": "5bfb020ac87b078d5e3066cb03168ae8",
     "packages": [
         {
             "name": "curl/curl",
@@ -344,6 +344,36 @@
                 "transliterator"
             ],
             "time": "2017-04-04T11:38:05+00:00"
+        },
+        {
+            "name": "blackboard-open-source/moodle-coding-standard",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blackboard-open-source/moodle-coding-standard.git",
+                "reference": "d40d6b6d73e124179a65ddf5522b8f1a61db7f5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blackboard-open-source/moodle-coding-standard/zipball/d40d6b6d73e124179a65ddf5522b8f1a61db7f5e",
+                "reference": "d40d6b6d73e124179a65ddf5522b8f1a61db7f5e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": "2.6.2"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "Moodle CodeSniffer Standards",
+            "keywords": [
+                "codesniffer",
+                "moodle"
+            ],
+            "time": "2016-10-06T15:43:49+00:00"
         },
         {
             "name": "container-interop/container-interop",

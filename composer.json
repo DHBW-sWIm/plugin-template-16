@@ -1,26 +1,15 @@
 {
   "name": "moodle/moodle-template",
-  "description": "Template for developing Moodle plugins with Travis CI integration",
   "keywords": [
-    "moodle",
-    "travis",
-    "ci",
-    "testing"
+    "moodle"
   ],
   "type": "project",
   "license": "GPL-3.0",
-  "authors": [
-    {
-      "name": "Tobias Rahloff",
-      "email": "rahloff+swim@gmail.com",
-      "homepage": "https://tobiasrahloff.com",
-      "role": "Architect/Developer"
-    }
-  ],
   "require-dev": {
     "moodlerooms/moodle-coding-standard": "^2.0",
     "phpunit/phpunit": "^6.5",
-    "behat/behat": "^3.4"
+    "behat/behat": "^3.4",
+    "blackboard-open-source/moodle-coding-standard": "^2.0"
   },
   "config": {
     "platform": {

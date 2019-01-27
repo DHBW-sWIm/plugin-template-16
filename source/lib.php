@@ -8,8 +8,6 @@
  * logic, should go to locallib.php.
  */
 
-// @todo DO NO CHANGE THIS FILE!
-
 defined('MOODLE_INTERNAL') || die();
 
 /**

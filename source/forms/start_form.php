@@ -12,7 +12,6 @@ class start_form extends moodleform
 
         $mform->addElement('header', 'header', 'Implemented UI Elements:');
 
-
         $mform->addElement('text', 'email', 'Enter your Email'); // Add elements to your form
         $mform->setType('email', PARAM_NOTAGS);                   //Set type of element
         //$mform->setDefault('email', '');     //Default value
@@ -26,7 +25,7 @@ class start_form extends moodleform
 
         $mform->addElement('submit', 'btnSubmit', 'Submit');
 
-        //@todo THE FOLLOWING UI ELEMENTS ARE FOR COPY&PASTE
+        //THE FOLLOWING UI ELEMENTS ARE FOR COPY&PASTE
 
         $mform->addElement('header', 'header', 'Copy&Paste UI Elements:');
 
@@ -37,7 +36,8 @@ class start_form extends moodleform
         //Textfield
         $mform->addElement('text', 'text1', 'Textfield');
         //Button
-        $mform->addElement('submit', 'button1', 'Button');
+        $mform->addElement('button', 'intro', 'Button');
+        $mform->addElement('submit', 'button1', 'Submit-Button');
         //Checkbox
         $mform->addElement('checkbox', 'checkbox', 'Checkbox');
         //Filepicker
