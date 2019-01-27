@@ -49,6 +49,10 @@ global $SESSION;
 
 echo $OUTPUT->heading('Start');
 
+//Example of using .ini
+$ini = parse_ini_file(__DIR__.'/.ini');
+echo $ini['example'];
+
 // Implement form for user
 require_once(__DIR__ . '/forms/start_form.php');
 
