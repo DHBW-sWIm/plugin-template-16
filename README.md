@@ -46,6 +46,36 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
 * Version your plugin accordingly. In the file `version.php`, replace the value for the version with a value combined of the current date (e.g. `20180708` for the 7th of July 2018) and the number of releases on this day (in most cases, `00`. If you update your plugin multiple times during one day, simply increase this number). This might look something like this: `2018070800`. Also replace the value of the variable `VERSION` in the second line of the file `db/install.xml`. 
 
+##Deep-Dive Development 
+
+### .ini-file
+* Type of Initialization/Configuration File
+* The INI file format is an informal standard for configuration files
+
+### *_form.php
+* Used for user-input (Views)
+* To complete a field the submit-button should be used
+
+### view_*.php-files
+* Used for handling forms (Controllers)
+* The business logic will take place here
+
+### locallib.php vs lib.php
+* All the core Moodle functions, neeeded to allow the module to work integrated in Moodle should be placed here.
+* All the  specific functions, needed to implement all the module logic, should go to locallib.php.
+
+### version.php
+* Used for version control in moodle
+
+### index.php
+* Used by Moodle for Navigation Bar, etc.
+
+### db-folder
+* Used to setup the DB of your plugin
+
+### long-folder
+* Language file to be used with the get_string()-function
+
 ##How to deploy?
 
 * Create a ZIP archive of the `/source` folder and name it according to your app (in this tutorial "testmodule").

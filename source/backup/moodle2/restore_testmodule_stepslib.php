@@ -2,11 +2,6 @@
 
 /**
  * Define all the restore steps that will be used by the restore_testmodule_activity_task
- *
- * @package   mod_testmodule
- * @category  backup
- * @copyright 2016 Your Name <your@email.address>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
