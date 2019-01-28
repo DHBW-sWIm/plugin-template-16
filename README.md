@@ -50,7 +50,18 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 ### .ini-file
 * Type of Initialization/Configuration File
 * The INI file format is an informal standard for configuration files
-* The File should be used to configure URLs, User-Names, Passwords and every other String that is often used in your code
+* The File should be used to configure URLs, User-Names, Passwords and every other String that is used to initialize your project.
+* Example .ini
+    ```
+    [Example]
+    url = https://de.wikipedia.org/
+    ```
+
+* Example usage
+    ```php
+    $ini = parse_ini_file(__DIR__.'/.ini');
+    $url = $ini['url'];
+    ```
 
 ### $SESSION
 * Session support in PHP consists of a way to preserve certain data across subsequent accesses.
