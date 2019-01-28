@@ -52,6 +52,36 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 * The INI file format is an informal standard for configuration files
 * The File should be used to configure URLs, User-Names, Passwords and every other String that is often used in your code
 
+### $SESSION
+* Session support in PHP consists of a way to preserve certain data across subsequent accesses.
+* It is used to move data across different views or forms
+* Example:    
+    ```php
+    global $SESSION;
+    
+    //Push new Data to the Session
+    $SESSION->data = $data;
+     
+    //Update the Session-Data 
+    $SESSION->data=$updateddata;
+  
+    //Remove Session-Data from SESSION
+    unset($SESSION->data);
+    ```
+
+### HTTP-Guzzle
+* Guzzle is a PHP HTTP client that makes it easy to send HTTP requests and trivial to integrate with web services.
+* Example:
+    ```php
+    $client = new GuzzleHttp\Client(); 
+    // Send an asynchronous request.
+       $request = new \GuzzleHttp\Psr7\Request('GET', 'http://httpbin.org');
+       $promise = $client->sendAsync($request)->then(function ($response) {
+       echo 'I completed! ' . $response->getBody();
+    });
+    $promise->wait();
+    ```
+
 ### *_form.php
 * Used for user-input (Views)
 * To complete a field the submit-button should be used 
