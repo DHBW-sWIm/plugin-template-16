@@ -47,6 +47,9 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
 ## Deep-Dive Development 
 
+For Developers the most interesting files are the views, forms and the db-folder to successfully create a working prototype.
+Read the following explanations to understand what should happen in the files and how to use the template. 
+
 ### .ini-file
 * Type of Initialization/Configuration File
 * The INI file format is an informal standard for configuration files
