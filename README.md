@@ -46,7 +46,7 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
 * Version your plugin accordingly. In the file `version.php`, replace the value for the version with a value combined of the current date (e.g. `20180708` for the 7th of July 2018) and the number of releases on this day (in most cases, `00`. If you update your plugin multiple times during one day, simply increase this number). This might look something like this: `2018070800`. Also replace the value of the variable `VERSION` in the second line of the file `db/install.xml`. 
 
-##Deep-Dive Development 
+## Deep-Dive Development 
 
 ### .ini-file
 * Type of Initialization/Configuration File
@@ -76,7 +76,7 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 ### long-folder
 * Language file to be used with the get_string()-function
 
-##How to deploy?
+## How to deploy?
 
 * Create a ZIP archive of the `/source` folder and name it according to your app (in this tutorial "testmodule").
 
