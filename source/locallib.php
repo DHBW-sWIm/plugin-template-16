@@ -17,7 +17,3 @@ function testmodule_do_something($string)
     return $string;
 }
 
-function get_env_by_name($name){
-    $env = getenv($name);
-    return $env;
-}
