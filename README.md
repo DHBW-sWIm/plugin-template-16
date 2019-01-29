@@ -18,7 +18,7 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
 * Clone the repository and read this file
 
-* Pick a name for your module (e.g. "testmodule").
+* Pick a name for your module (e.g. "newname").
 
   **The module name MUST be lower case and can't contain underscores.**
 
@@ -26,24 +26,24 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
 * Edit all the files in this directory and its subdirectories and change
   all the instances of the string "testmodule" to your module name
-  (eg "testmodule"). 
+  (eg "newname"). 
 
   On a Windows system, you can use the following PowerShell commands. Use the command `cd` to change into the directory of your code.  
-  `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "testmodule", "testmodule" } | Set-Content $file.PSPath }`  
-  `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "TESTMODULE", "testmodule" } | Set-Content $file.PSPath }`  
+  `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "testmodule", "newname" } | Set-Content $file.PSPath }`  
+  `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "TESTMODULE", "newname" } | Set-Content $file.PSPath }`  
 
   Replace "testmodule" in the commands above with your module name.
 
-* Rename the file `/source/lang/en/testmodule.php` to lang/en/testmodule.php
-  where "testmodule" is the name of your module
+* Rename the file `/source/lang/en/testmodule.php` to lang/en/newname.php
+  where "newname" is the name of your module
 
 * Rename all files in `/source/backup/moodle2/` folder by replacing "testmodule" with
   the name of your module
 
   On a Windows system, you can use the following PowerShell command to perfrom this and the previous step:  
-  `$files = Get-ChildItem . -recurse -include *.* | Where-Object {$_.Name -like "*testmodule*"}; foreach ($file in $files) { $newname = ([String]$file).Replace("testmodule", "testmodule"); Rename-Item -Path $file $newname }`
+  `$files = Get-ChildItem . -recurse -include *.* | Where-Object {$_.Name -like "*testmodule*"}; foreach ($file in $files) { $newname = ([String]$file).Replace("testmodule", "newname"); Rename-Item -Path $file $newname }`
 
-* Version your plugin accordingly. In the file `version.php`, replace the value for the version with a value combined of the current date (e.g. `20180708` for the 7th of July 2018) and the number of releases on this day (in most cases, `00`. If you update your plugin multiple times during one day, simply increase this number). This might look something like this: `2018070800`. Also replace the value of the variable `VERSION` in the second line of the file `db/install.xml`. 
+* Version your plugin accordingly. In the file `version.php`, replace the value for the version with a value combined of the current date (e.g. `20180706` for the 6th of July 2018) and the number of releases on this day (in most cases, `00`. If you update your plugin multiple times during one day, simply increase this number). This might look something like this: `2018070800`. Also replace the value of the variable `VERSION` in the second line of the file `db/install.xml`. 
 
 ## Deep-Dive Development 
 
@@ -201,7 +201,7 @@ Read the following explanations to understand what should happen in the files an
 
 ## How to deploy?
 
-* Create a ZIP archive of the `/source` folder and name it according to your app (in this tutorial "testmodule").
+* Create a ZIP archive of the `/source` folder and name it according to your app (in this tutorial "newname").
 
 * Login in to [our Moodle instance](https://moodle.ganymed.me), navigate to the Management of Moodle and select the Option to install a new plugin.
 
