@@ -6,9 +6,6 @@
 
 1. Install [PHPSTORM](https://www.jetbrains.com/phpstorm/download/#section=windows)
 1. Clone this template
-1. On a Windows system, you can use the following PowerShell commands. Use the command `cd` to change into the directory of your code. Then execute the following commands:
-    1. `$ composer install --no-dev`
-    1. `$ composer autofix`
 
 ## How to use the template?
 
@@ -30,7 +27,6 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
 
   On a Windows system, you can use the following PowerShell commands. Use the command `cd` to change into the directory of your code.  
   `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "testmodule", "newname" } | Set-Content $file.PSPath }`  
-  `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "TESTMODULE", "newname" } | Set-Content $file.PSPath }`  
 
   Replace "testmodule" in the commands above with your module name.
 
