@@ -205,8 +205,6 @@ Read the following explanations to understand what should happen in the files an
 
 * When asked if you want to update the Moodle database, do so. 
 
-  * If you get a timeout message, then your ZIP Archive is too big. Please run `composer install --no-dev` again, this time with the flag at the end to prevent all unnecessary libs from installing. This should slim down your ZIP archive (that you have to recreate, of course) down a bit, and processing should no longer take longer than 30 seconds.
-
 * Go the main page of Moodle, select a Course and click "Enable Editing" in the options on the upper right. by clicking the option of "Add a resource ...", you should see a list of available plugins including your new module.
 
 *Good luck, you will need it...*
