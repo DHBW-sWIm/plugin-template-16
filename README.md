@@ -28,7 +28,7 @@ For the sake of this tutorial, it is assumed that you have a shell (or cmd on Wi
   On a Windows system, you can use the following PowerShell commands. Use the command `cd` to change into the directory of your code.  
   `$files = Get-ChildItem . -recurse -include *.* ; foreach ($file in $files) { (Get-Content $file.PSPath) | ForEach-Object { $_ -replace "testmodule", "newname" } | Set-Content $file.PSPath }`  
 
-  Replace "testmodule" in the commands above with your module name.
+  Replace "newname" in the commands above with your module name.
 
 * Rename the file `/source/lang/en/testmodule.php` to lang/en/newname.php
   where "newname" is the name of your module
