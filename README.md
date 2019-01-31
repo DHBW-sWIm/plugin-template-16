@@ -1,10 +1,11 @@
 # Moodle Plugin Template
 
-[![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+**ONLY THE FILES INSIDE OF /source ARE RELEVANT FOR YOU.**  
+Everything else is just for CI stuff or for setting coding standards inside of your IDE. You can safely ignore them. If you'd like to know what they are used for, ask #t-infrastructure.
 
 ## Prerequisites 
 
-1. Install [PHPSTORM](https://www.jetbrains.com/phpstorm/download/#section=windows)
+1. Install [PhpStorm](https://www.jetbrains.com/phpstorm/download/#section=windows)
 1. Clone this template
 
 ## How to use the template?
