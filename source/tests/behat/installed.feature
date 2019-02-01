@@ -1,4 +1,4 @@
-@mod @mod_ausleihverwaltung
+@mod @mod_testmodule
 
 Feature: Installation succeeds
     In order to use this plugin
