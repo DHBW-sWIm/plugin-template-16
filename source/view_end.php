@@ -4,7 +4,7 @@ require_once(dirname(dirname(__DIR__)) . '/config.php');
 require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/locallib.php');
 
-include (__DIR__.'/view_init.php');
+include(__DIR__ . '/view_init.php');
 
 // @todo Replace the following lines with you own code.
 

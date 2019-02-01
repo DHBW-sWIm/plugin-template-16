@@ -4,7 +4,7 @@ require_once(dirname(dirname(__DIR__)) . '/config.php');
 require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/locallib.php');
 
-include (__DIR__.'/view_init.php');
+include(__DIR__ . '/view_init.php');
 
 // @todo Replace the following lines with you own code.
 
@@ -20,10 +20,10 @@ $camunda_url = $ini['camunda_url'];
 $client = new GuzzleHttp\Client();
 // Send an asynchronous request.
 $request = new \GuzzleHttp\Psr7\Request('GET', $camunda_url . 'engine-rest/user');
-$promise = $client->sendAsync($request)->then(function ($response) {
+$promise = $client->sendAsync($request)->then(function($response) {
     $body = $response->getBody();
     $data = json_decode($body, true);
-//Tabelle mit camunda
+    //Tabelle mit camunda
     $table = new html_table();
     $table->head = array('ID', 'Firstname', 'Name');
 
@@ -33,7 +33,6 @@ $promise = $client->sendAsync($request)->then(function ($response) {
     echo html_writer::table($table);
 });
 $promise->wait();
-
 
 // Implement form for user
 require_once(__DIR__ . '/forms/start_form.php');

@@ -8,6 +8,11 @@ Everything else is just for CI stuff or for setting coding standards inside of y
 1. Install [PhpStorm](https://www.jetbrains.com/phpstorm/download/#section=windows)
 1. Clone this template
 
+## Code style
+To make sure that we all share a common code style, **make sure** to go to Settings -> Editor -> Code Style -> PHP, next to Scheme click on the menu, select "Import Scheme" -> "IntelliJ IDEA code style XML", and import the file "style.xml" inside this repository.
+
+If you want to make sure that your files adhere to the code style, just press ctrl + alt + L - PhpStorm will auto-format your code.
+
 ## How to use the template?
 
 The following steps should get you up and running with this module template code.

@@ -17,7 +17,8 @@ $string['testmodule:submit'] = 'Submit testmodule';
 $string['testmodule:view'] = 'View testmodule';
 $string['testmodulefieldset'] = 'Custom example fieldset';
 $string['testmodulename'] = 'testmodule name';
-$string['testmodulename_help'] = 'This is the content of the help tooltip associated with the testmodulename field. Markdown syntax is supported.';
+$string['testmodulename_help'] =
+    'This is the content of the help tooltip associated with the testmodulename field. Markdown syntax is supported.';
 $string['testmodule'] = 'testmodule';
 $string['pluginadministration'] = 'testmodule administration';
 $string['pluginname'] = 'testmodule';

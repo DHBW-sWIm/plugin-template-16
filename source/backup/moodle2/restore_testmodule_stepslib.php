@@ -36,7 +36,7 @@ class restore_testmodule_activity_structure_step extends restore_activity_struct
     protected function process_testmodule($data) {
         global $DB;
 
-        $data = (object)$data;
+        $data = (object) $data;
         $oldid = $data->id;
         $data->course = $this->get_courseid();
 

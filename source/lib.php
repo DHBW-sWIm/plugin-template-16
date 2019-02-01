@@ -25,8 +25,7 @@ define('TESTMODULE_ULTIMATE_ANSWER', 42);
  * @param string $feature FEATURE_xx constant for requested feature
  * @return mixed true if the feature is supported, null if unknown
  */
-function testmodule_supports($feature)
-{
+function testmodule_supports($feature) {
 
     switch ($feature) {
         case FEATURE_MOD_INTRO:
@@ -54,8 +53,7 @@ function testmodule_supports($feature)
  * @param mod_testmodule_mod_form $mform The form instance itself (if needed)
  * @return int The id of the newly inserted testmodule record
  */
-function testmodule_add_instance(stdClass $testmodule, mod_testmodule_mod_form $mform = null)
-{
+function testmodule_add_instance(stdClass $testmodule, mod_testmodule_mod_form $mform = null) {
     global $DB;
 
     $testmodule->timecreated = time();
@@ -80,8 +78,7 @@ function testmodule_add_instance(stdClass $testmodule, mod_testmodule_mod_form $
  * @param mod_testmodule_mod_form $mform The form instance itself (if needed)
  * @return boolean Success/Fail
  */
-function testmodule_update_instance(stdClass $testmodule, mod_testmodule_mod_form $mform = null)
-{
+function testmodule_update_instance(stdClass $testmodule, mod_testmodule_mod_form $mform = null) {
     global $DB;
 
     $testmodule->timemodified = time();
@@ -106,8 +103,7 @@ function testmodule_update_instance(stdClass $testmodule, mod_testmodule_mod_for
  * @param int $courseid Course ID
  * @return bool
  */
-function testmodule_refresh_events($courseid = 0)
-{
+function testmodule_refresh_events($courseid = 0) {
     global $DB;
 
     if ($courseid == 0) {
@@ -138,8 +134,7 @@ function testmodule_refresh_events($courseid = 0)
  * @param int $id Id of the module instance
  * @return boolean Success/Failure
  */
-function testmodule_delete_instance($id)
-{
+function testmodule_delete_instance($id) {
     global $DB;
 
     if (!$testmodule = $DB->get_record('testmodule', array('id' => $id))) {
@@ -169,8 +164,7 @@ function testmodule_delete_instance($id)
  * @param stdClass $testmodule The testmodule instance record
  * @return stdClass|null
  */
-function testmodule_user_outline($course, $user, $mod, $testmodule)
-{
+function testmodule_user_outline($course, $user, $mod, $testmodule) {
 
     $return = new stdClass();
     $return->time = 0;
@@ -189,8 +183,7 @@ function testmodule_user_outline($course, $user, $mod, $testmodule)
  * @param cm_info $mod course module info
  * @param stdClass $testmodule the module instance record
  */
-function testmodule_user_complete($course, $user, $mod, $testmodule)
-{
+function testmodule_user_complete($course, $user, $mod, $testmodule) {
 }
 
 /**
@@ -202,8 +195,7 @@ function testmodule_user_complete($course, $user, $mod, $testmodule)
  * @param int $timestart Print activity since this timestamp
  * @return boolean True if anything was printed, otherwise false
  */
-function testmodule_print_recent_activity($course, $viewfullnames, $timestart)
-{
+function testmodule_print_recent_activity($course, $viewfullnames, $timestart) {
     return false;
 }
 
@@ -224,8 +216,7 @@ function testmodule_print_recent_activity($course, $viewfullnames, $timestart)
  * @param int $userid check for a particular user's activity only, defaults to 0 (all users)
  * @param int $groupid check for a particular group's activity only, defaults to 0 (all groups)
  */
-function testmodule_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid, $cmid, $userid = 0, $groupid = 0)
-{
+function testmodule_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid, $cmid, $userid = 0, $groupid = 0) {
 }
 
 /**
@@ -237,8 +228,7 @@ function testmodule_get_recent_mod_activity(&$activities, &$index, $timestart, $
  * @param array $modnames as returned by {@link get_module_types_names()}
  * @param bool $viewfullnames display users' full names
  */
-function testmodule_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames)
-{
+function testmodule_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {
 }
 
 /**
@@ -251,8 +241,7 @@ function testmodule_print_recent_mod_activity($activity, $courseid, $detail, $mo
  *
  * @return boolean
  */
-function testmodule_cron()
-{
+function testmodule_cron() {
     return true;
 }
 
@@ -264,8 +253,7 @@ function testmodule_cron()
  *
  * @return array
  */
-function testmodule_get_extra_capabilities()
-{
+function testmodule_get_extra_capabilities() {
     return array();
 }
 
@@ -281,8 +269,7 @@ function testmodule_get_extra_capabilities()
  * @param int $scaleid ID of the scale
  * @return bool true if the scale is used by the given testmodule instance
  */
-function testmodule_scale_used($testmoduleid, $scaleid)
-{
+function testmodule_scale_used($testmoduleid, $scaleid) {
     global $DB;
 
     if ($scaleid and $DB->record_exists('testmodule', array('id' => $testmoduleid, 'grade' => -$scaleid))) {
@@ -300,8 +287,7 @@ function testmodule_scale_used($testmoduleid, $scaleid)
  * @param int $scaleid ID of the scale
  * @return boolean true if the scale is used by any testmodule instance
  */
-function testmodule_scale_used_anywhere($scaleid)
-{
+function testmodule_scale_used_anywhere($scaleid) {
     global $DB;
 
     if ($scaleid and $DB->record_exists('testmodule', array('grade' => -$scaleid))) {
@@ -320,8 +306,7 @@ function testmodule_scale_used_anywhere($scaleid)
  * @param bool $reset reset grades in the gradebook
  * @return void
  */
-function testmodule_grade_item_update(stdClass $testmodule, $reset = false)
-{
+function testmodule_grade_item_update(stdClass $testmodule, $reset = false) {
     global $CFG;
     require_once($CFG->libdir . '/gradelib.php');
 
@@ -354,8 +339,7 @@ function testmodule_grade_item_update(stdClass $testmodule, $reset = false)
  * @param stdClass $testmodule instance object
  * @return grade_item
  */
-function testmodule_grade_item_delete($testmodule)
-{
+function testmodule_grade_item_delete($testmodule) {
     global $CFG;
     require_once($CFG->libdir . '/gradelib.php');
 
@@ -371,8 +355,7 @@ function testmodule_grade_item_delete($testmodule)
  * @param stdClass $testmodule instance object with extra cmidnumber and modname property
  * @param int $userid update grade of specific user only, 0 means all participants
  */
-function testmodule_update_grades(stdClass $testmodule, $userid = 0)
-{
+function testmodule_update_grades(stdClass $testmodule, $userid = 0) {
     global $CFG, $DB;
     require_once($CFG->libdir . '/gradelib.php');
 
@@ -395,8 +378,7 @@ function testmodule_update_grades(stdClass $testmodule, $userid = 0)
  * @param stdClass $context
  * @return array of [(string)filearea] => (string)description
  */
-function testmodule_get_file_areas($course, $cm, $context)
-{
+function testmodule_get_file_areas($course, $cm, $context) {
     return array();
 }
 
@@ -417,8 +399,7 @@ function testmodule_get_file_areas($course, $cm, $context)
  * @param string $filename
  * @return file_info instance or null if not found
  */
-function testmodule_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename)
-{
+function testmodule_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename) {
     return null;
 }
 
@@ -436,8 +417,7 @@ function testmodule_get_file_info($browser, $areas, $course, $cm, $context, $fil
  * @param bool $forcedownload whether or not force download
  * @param array $options additional options affecting the file serving
  */
-function testmodule_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options = array())
-{
+function testmodule_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options = array()) {
     global $DB, $CFG;
 
     if ($context->contextlevel != CONTEXT_MODULE) {
@@ -461,8 +441,7 @@ function testmodule_pluginfile($course, $cm, $context, $filearea, array $args, $
  * @param stdClass $module current testmodule instance record
  * @param cm_info $cm course module information
  */
-function testmodule_extend_navigation(navigation_node $navref, stdClass $course, stdClass $module, cm_info $cm)
-{
+function testmodule_extend_navigation(navigation_node $navref, stdClass $course, stdClass $module, cm_info $cm) {
     // TODO Delete this function and its docblock, or implement it.
 }
 
@@ -475,7 +454,6 @@ function testmodule_extend_navigation(navigation_node $navref, stdClass $course,
  * @param settings_navigation $settingsnav complete settings navigation tree
  * @param navigation_node $testmodulenode testmodule administration node
  */
-function testmodule_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $testmodulenode = null)
-{
+function testmodule_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $testmodulenode = null) {
     // TODO Delete this function and its docblock, or implement it.
 }

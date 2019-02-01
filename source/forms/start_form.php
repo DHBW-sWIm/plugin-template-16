@@ -1,11 +1,9 @@
 <?php
 require_once("$CFG->libdir/formslib.php");
 
-class start_form extends moodleform
-{
+class start_form extends moodleform {
     //Add elements to form
-    public function definition()
-    {
+    public function definition() {
         global $CFG;
 
         $mform = $this->_form; // Don't forget the underscore!
@@ -52,7 +50,7 @@ class start_form extends moodleform
         //Password
         $mform->addElement('passwordunmask', 'password', 'Password');
         //Radio
-        $radioarray=array();
+        $radioarray = array();
         $radioarray[] = $mform->createElement('radio', 'yesno', '', 'Yes', 1);
         $radioarray[] = $mform->createElement('radio', 'yesno', '', 'no', 0);
         $mform->addGroup($radioarray, 'Radio', '', array(' '), false);
@@ -65,8 +63,7 @@ class start_form extends moodleform
     }
 
     //Custom validation should be added here
-    function validation($data, $files)
-    {
+    function validation($data, $files) {
         return array();
     }
 }
