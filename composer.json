@@ -1,5 +1,5 @@
 {
-  "name": "DHBW-sWIm/plugin-template-16",
+  "name": "plugin-template-16",
   "description": "Template for developing Moodle plugins with Travis CI integration",
   "keywords": [
     "moodle",
