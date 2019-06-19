@@ -4,7 +4,7 @@ require_once(dirname(dirname(__DIR__)) . '/config.php');
 require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/locallib.php');
 
-include (__DIR__.'/view_init.php');
+include(__DIR__ . '/view_init.php');
 
 // @todo Replace the following lines with you own code.
 
@@ -12,28 +12,16 @@ global $SESSION;
 
 echo $OUTPUT->heading('Start');
 
-echo('Example of using HTTP Request to get Camunda User Object via REST API and print out in table');
-//Example of using .ini
-$ini = parse_ini_file(__DIR__ . '/.ini');
-$camunda_url = $ini['camunda_url'];
+echo ('Example of using HTTP Request to get Camunda User Object via REST API and print out in table');
 
-$client = new GuzzleHttp\Client();
-// Send an asynchronous request.
-$request = new \GuzzleHttp\Psr7\Request('GET', $camunda_url . 'engine-rest/user');
-$promise = $client->sendAsync($request)->then(function ($response) {
-    $body = $response->getBody();
-    $data = json_decode($body, true);
+$users = get_all_camunda_users();
 //Tabelle mit camunda
-    $table = new html_table();
-    $table->head = array('ID', 'Firstname', 'Name');
-
-    foreach ($data as $user) {
-        $table->data[] = array($user['id'], $user['firstName'], $user['lastName']);
-    }
-    echo html_writer::table($table);
-});
-$promise->wait();
-
+$table = new html_table();
+$table->head = array('ID', 'Firstname', 'Name');
+foreach ($users as $user) {
+    $table->data[] = array($user['id'], $user['firstName'], $user['lastName']);
+}
+echo html_writer::table($table);
 
 // Implement form for user
 require_once(__DIR__ . '/forms/start_form.php');
