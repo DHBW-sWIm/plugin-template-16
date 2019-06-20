@@ -13,26 +13,15 @@ global $SESSION;
 echo $OUTPUT->heading('Start');
 
 echo('Example of using HTTP Request to get Camunda User Object via REST API and print out in table');
-//Example of using .ini
-$ini = parse_ini_file(__DIR__ . '/.ini');
-$camunda_url = $ini['camunda_url'];
 
-$client = new GuzzleHttp\Client();
-// Send an asynchronous request.
-$request = new \GuzzleHttp\Psr7\Request('GET', $camunda_url . 'engine-rest/user');
-$promise = $client->sendAsync($request)->then(function($response) {
-    $body = $response->getBody();
-    $data = json_decode($body, true);
-    //Tabelle mit camunda
-    $table = new html_table();
-    $table->head = array('ID', 'Firstname', 'Name');
-
-    foreach ($data as $user) {
-        $table->data[] = array($user['id'], $user['firstName'], $user['lastName']);
-    }
-    echo html_writer::table($table);
-});
-$promise->wait();
+$users = get_all_camunda_users();
+//Tabelle mit camunda
+$table = new html_table();
+$table->head = array('ID', 'Firstname', 'Name');
+foreach ($users as $user) {
+    $table->data[] = array($user['id'], $user['firstName'], $user['lastName']);
+}
+echo html_writer::table($table);
 
 // Implement form for user
 require_once(__DIR__ . '/forms/start_form.php');
@@ -47,7 +36,22 @@ if ($mform->is_cancelled()) {
 } else if ($fromform = $mform->get_data()) {
     //Handle form successful operation, if button is present on form
     $SESSION->formdata = $fromform;
-    $returnurl = new moodle_url('/mod/testmodule/view_detail.php', array('id' => $cm->id));
+
+    //======================================================================
+    // GET AND PROCESS FORM DATA
+    //======================================================================
+
+    $variables = [
+            'student_name' => camunda_string($fromform->student_name),
+            'student_matnr' => camunda_string($fromform->student_matnr),
+            'student_reason' => camunda_string($fromform->student_reason),
+            'student_length' => camunda_date_from_form($fromform->student_date)
+    ];
+    // start process with key and data variables (method from locallib.php)
+    start_process('bpx-mvp-process', $variables);
+
+    // redirect user
+    $returnurl = new moodle_url('/mod/testmodule/view_end.php', array('id' => $cm->id));
     redirect($returnurl);
 } else {
     // this branch is executed if the form is submitted but the data doesn't validate and the form should be redisplayed

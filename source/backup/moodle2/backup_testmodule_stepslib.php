@@ -28,7 +28,7 @@ class backup_testmodule_activity_structure_step extends backup_activity_structur
 
         // Define the root element describing the testmodule instance.
         $testmodule = new backup_nested_element('testmodule', array('id'), array(
-            'name', 'intro', 'introformat', 'grade'));
+                'name', 'intro', 'introformat', 'grade'));
 
         // If we had more elements, we would build the tree here.
 

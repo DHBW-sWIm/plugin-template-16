@@ -12,7 +12,9 @@ global $SESSION;
 
 echo $OUTPUT->heading('Result');
 
-echo "Saved entries:" . "\n E-Mail: " . $SESSION->formdata->email . "\n Name: " . $SESSION->formdata->name;
+echo "Sent entries:" . "\n Student Name: " . $SESSION->formdata->student_name . "\n Matriculation Number: " .
+        $SESSION->formdata->student_matnr
+        . "\n Reason: " . $SESSION->formdata->student_reason . "\n Valid until: " . $SESSION->formdata->student_length;
 
 // Implement form for user
 require_once(__DIR__ . '/forms/end_form.php');

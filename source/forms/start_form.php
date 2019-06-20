@@ -1,22 +1,27 @@
 <?php
 require_once("$CFG->libdir/formslib.php");
 
-class start_form extends moodleform {
+class start_form extends moodleform
+{
     //Add elements to form
-    public function definition() {
+    public function definition()
+    {
         global $CFG;
 
         $mform = $this->_form; // Don't forget the underscore!
 
-        $mform->addElement('header', 'header', 'Implemented UI Elements:');
+        $mform->addElement('header', 'header', 'Camunda Example:');
 
-        $mform->addElement('text', 'email', 'Enter your Email'); // Add elements to your form
-        $mform->setType('email', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('email', '');     //Default value
+        $mform->addElement('text', 'student_name', 'Enter your name');
+        $mform->setType('student_name', PARAM_NOTAGS);
 
-        $mform->addElement('text', 'name', 'Enter your Name');
-        $mform->setType('name', PARAM_NOTAGS);
-        //$mform->setDefault('name', '');
+        $mform->addElement('text', 'student_matnr', 'Enter your matriculation number');
+        $mform->setType('student_matnr', PARAM_NOTAGS);
+
+        $mform->addElement('text', 'student_reason', 'Enter your illness reason');
+        $mform->setType('student_reason', PARAM_NOTAGS);
+
+        $mform->addElement('date_selector', 'student_length', 'Enter the date until you are sick');
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -59,11 +64,11 @@ class start_form extends moodleform {
         //Multiselekt
         $select = $mform->addElement('select', 'multiselekt', 'Multiselekt', array('red', 'blue', 'green'));
         $select->setMultiple(true);
-
     }
 
     //Custom validation should be added here
-    function validation($data, $files) {
+    function validation($data, $files)
+    {
         return array();
     }
 }
