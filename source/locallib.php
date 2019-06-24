@@ -51,18 +51,46 @@ function start_process($key, $variables) {
 }
 
 function get_all_tasks() {
+    global $client;
+
+    $res = $client->get('task');
+    $body = $res->getBody();
+    $data = json_decode($body, true);
+    return ($data);
 }
 
 function get_task_by_id($id) {
+    global $client;
+
+    $res = $client->get('task/' . $id);
+    $body = $res->getBody();
+    $data = json_decode($body, true);
+    return ($data);
 }
 
-function get_task_variables_by_id($id) {
+function get_all_task_variables_by_id($id) {
+    global $client;
+
+    $res = $client->get('task/' . $id . '/variables');
+    $body = $res->getBody();
+    $data = json_decode($body, true);
+    return ($data);
 }
 
 function set_assignee_for_task_by_id($id) {
 }
 
 function complete_task($id, $variables) {
+    global $client;
+
+    $task_url = 'task/' . $id . '/complete';
+    $res = $client->post($task_url, [
+            GuzzleHttp\RequestOptions::JSON =>
+                    ['variables' => $variables]
+    ]);
+    $body = $res->getBody();
+    $data = json_decode($body, true);
+    return ($data);
 }
 
 //======================================================================
