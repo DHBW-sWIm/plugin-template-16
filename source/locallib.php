@@ -77,9 +77,6 @@ function get_all_task_variables_by_id($id) {
     return ($data);
 }
 
-function set_assignee_for_task_by_id($id) {
-}
-
 function complete_task($id, $variables) {
     global $client;
 
