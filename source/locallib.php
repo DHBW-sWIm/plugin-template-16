@@ -66,7 +66,6 @@ function get_tasks_by_key($taskDefinitionKey, $filters = []) {
     return ($data);
 }
 
-//TODO: implement filters as query params
 function get_all_tasks($filters = []) {
     global $client;
 
