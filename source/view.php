@@ -45,10 +45,12 @@ if ($mform->is_cancelled()) {
             'student_name' => camunda_string($fromform->student_name),
             'student_matnr' => camunda_string($fromform->student_matnr),
             'student_reason' => camunda_string($fromform->student_reason),
-            'student_length' => camunda_date_from_form($fromform->student_date)
+            'student_length' => camunda_date_from_form($fromform->student_length)
     ];
     // start process with key and data variables (method from locallib.php)
     start_process('bpx-mvp-process', $variables);
+
+    $SESSION->TESTING->variables = $variables;
 
     // redirect user
     $returnurl = new moodle_url('/mod/testmodule/view_end.php', array('id' => $cm->id));
