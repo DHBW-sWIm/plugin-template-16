@@ -55,8 +55,11 @@ function start_process($key, $variables) {
 function get_tasks_by_key($taskDefinitionKey, $filters = []) {
     global $client;
 
+    $taskKeyFilter = ['taskDefinitionKey' => $taskDefinitionKey];
+    $merged_filters = array_merge($filters, $taskKeyFilter);
+
     $res = $client->get('task', [
-        'query' => ['taskDefinitionKey' => $taskDefinitionKey]
+        'query' => $merged_filters
     ]);
     $body = $res->getBody();
     $data = json_decode($body, true);
