@@ -50,15 +50,32 @@ function start_process($key, $variables) {
     return ($data);
 }
 
-function get_all_tasks() {
+// get all tasks for one taskDefinitionKey. Needs to be set in Camunda Modeler as Id on one task.
+// Example: 'bpxtest.verify_illness'
+function get_tasks_by_key($taskDefinitionKey) {
     global $client;
 
-    $res = $client->get('task');
+    $res = $client->get('task', [
+        'query' => ['taskDefinitionKey' => $taskDefinitionKey]
+    ]);
     $body = $res->getBody();
     $data = json_decode($body, true);
     return ($data);
 }
 
+//TODO: implement filters as query params
+function get_all_tasks($filters) {
+    global $client;
+
+    $res = $client->get('task', [
+        'query' => $filters
+    ]);
+    $body = $res->getBody();
+    $data = json_decode($body, true);
+    return ($data);
+}
+
+// will get a single tasks
 function get_task_by_id($id) {
     global $client;
 
