@@ -99,17 +99,14 @@ function camunda_string($value) {
     return new camunda_var($value, 'string');
 }
 
-//TODO: muss noch geparsed werden?
 function camunda_int($value) {
     return new camunda_var($value, 'integer');
 }
 
-//TODO: muss noch geparsed werden?
 function camunda_double($value) {
     return new camunda_var($value, 'double');
 }
 
-//TODO: muss noch geparsed werden?
 function camunda_boolean($value) {
     return new camunda_var($value, 'boolean');
 }
@@ -118,12 +115,12 @@ function camunda_date($iso_date_string) {
     return new camunda_var($iso_date_string, 'date');
 }
 
-// convert epoch timestamp to ISO format (12345546342 -> 2019-01-30T00:00:00.000+0100)
-function epoch_to_iso_date($epoch_string) {
-    return strftime('%Y-%m-%dT%H:%M:%SZ', $epoch_string);
+// convert epoch timestamp to ISO format (1561417200 -> 2019-06-25T00:00:00.000+0000)
+function epoch_to_iso_date($epoch_timestamp) {
+    return strftime('%Y-%m-%dT%H:%M:%S.000+0000', $epoch_timestamp);
 }
 
-function camunda_date_from_form($epoch_string) {
-    $date = epoch_to_iso_date($epoch_string);
-    return new camunda_var($date, 'date');
+function camunda_date_from_form($epoch_timestamp) {
+    $iso_date_string = epoch_to_iso_date($epoch_timestamp);
+    return camunda_date($iso_date_string);
 }
