@@ -11,7 +11,7 @@ $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 require_course_login($course);
 
 $params = array(
-    'context' => context_course::instance($course->id)
+        'context' => context_course::instance($course->id)
 );
 $event = \mod_testmodule\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
@@ -64,7 +64,7 @@ foreach ($modinfo->instances['testmodule'] as $cm) {
     $class = $cm->visible ? null : array('class' => 'dimmed');
 
     $row[] = html_writer::link(new moodle_url('view.php', array('id' => $cm->id)),
-        $cm->get_formatted_name(), $class);
+            $cm->get_formatted_name(), $class);
     $table->data[] = $row;
 }
 

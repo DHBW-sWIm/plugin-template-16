@@ -77,7 +77,7 @@ function xmldb_testmodule_upgrade($oldversion) {
         // Define field introformat to be added to testmodule.
         $table = new xmldb_table('testmodule');
         $field = new xmldb_field('introformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
-            'intro');
+                'intro');
 
         // Add field introformat.
         if (!$dbman->field_exists($table, $field)) {
@@ -97,7 +97,7 @@ function xmldb_testmodule_upgrade($oldversion) {
         // Define field timecreated to be added to testmodule.
         $table = new xmldb_table('testmodule');
         $field = new xmldb_field('timecreated', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
-            'introformat');
+                'introformat');
 
         // Add field timecreated.
         if (!$dbman->field_exists($table, $field)) {
@@ -107,7 +107,7 @@ function xmldb_testmodule_upgrade($oldversion) {
         // Define field timemodified to be added to testmodule.
         $table = new xmldb_table('testmodule');
         $field = new xmldb_field('timemodified', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
-            'timecreated');
+                'timecreated');
 
         // Add field timemodified.
         if (!$dbman->field_exists($table, $field)) {

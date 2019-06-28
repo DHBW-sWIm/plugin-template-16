@@ -37,5 +37,8 @@
       "@unit",
       "@behat"
     ]
+  },
+  "require": {
+    "ext-json": "*"
   }
 }
