@@ -60,7 +60,7 @@ function get_tasks_by_key($taskDefinitionKey, $filters = []) {
     $merged_filters = array_merge($filters, $taskKeyFilter);
 
     $res = $client->get('task', [
-        'query' => $merged_filters
+            'query' => $merged_filters
     ]);
     $body = $res->getBody();
     $data = json_decode($body, true);
@@ -72,7 +72,7 @@ function get_all_tasks($filters = []) {
     global $client;
 
     $res = $client->get('task', [
-        'query' => $filters
+            'query' => $filters
     ]);
     $body = $res->getBody();
     $data = json_decode($body, true);
@@ -88,7 +88,6 @@ function get_task_by_id($id) {
     $data = json_decode($body, true);
     return ($data);
 }
-
 
 function get_all_task_variables_by_id($id) {
     global $client;
@@ -116,6 +115,7 @@ function complete_task($id, $variables) {
 // VARIABLE TYPE HELPERS FOR CAMUNDA
 //======================================================================
 require_once(__DIR__ . '/classes/camunda/camunda_var.php');
+require_once(__DIR__ . '/classes/camunda/camunda_file.php');
 
 function camunda_string($value) {
     return new camunda_var($value, 'string');
@@ -145,4 +145,8 @@ function epoch_to_iso_date($epoch_timestamp) {
 function camunda_date_from_form($epoch_timestamp) {
     $iso_date_string = epoch_to_iso_date($epoch_timestamp);
     return camunda_date($iso_date_string);
+}
+
+function camunda_file($filename, $mimeType, $base64) {
+    return new camunda_file($filename, $mimeType, $base64);
 }

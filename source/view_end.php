@@ -13,12 +13,12 @@ global $SESSION;
 echo $OUTPUT->heading('Result');
 
 echo '<h2>Sent entries' . '</h2>'
-    .'<p>Student Name: ' . $SESSION->formdata->student_name . '</p>'
-    .'<p>Matriculation Number: ' . $SESSION->formdata->student_matnr . '</p>'
-    .'<p>Reason: ' . $SESSION->formdata->student_reason . '</p>'
-    .'<p>Valid until: ' . $SESSION->formdata->student_length . '</p>'
-    .'<p>Valid until: ' . epoch_to_iso_date($SESSION->formdata->student_length) . '</p>'
-    .'<p>sent variables: ' . json_encode($SESSION->TESTING->variables) . '</p>';
+        . '<p>Student Name: ' . $SESSION->formdata->student_name . '</p>'
+        . '<p>Matriculation Number: ' . $SESSION->formdata->student_matnr . '</p>'
+        . '<p>Reason: ' . $SESSION->formdata->student_reason . '</p>'
+        . '<p>Valid until: ' . $SESSION->formdata->student_length . '</p>'
+        . '<p>Valid until: ' . epoch_to_iso_date($SESSION->formdata->student_length) . '</p>'
+        . '<p>sent variables: ' . json_encode($SESSION->TESTING->variables) . '</p>';
 
 // Implement form for user
 require_once(__DIR__ . '/forms/end_form.php');

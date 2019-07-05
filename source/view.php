@@ -36,6 +36,9 @@ if ($mform->is_cancelled()) {
 } else if ($fromform = $mform->get_data()) {
     //Handle form successful operation, if button is present on form
     $SESSION->formdata = $fromform;
+    $attachment = $mform->get_file_content('attachment');
+    $base64 = base64_encode($attachment);
+    $filename = $mform->get_new_filename('attachment');
 
     //======================================================================
     // GET AND PROCESS FORM DATA
@@ -45,7 +48,8 @@ if ($mform->is_cancelled()) {
             'student_name' => camunda_string($fromform->student_name),
             'student_matnr' => camunda_string($fromform->student_matnr),
             'student_reason' => camunda_string($fromform->student_reason),
-            'student_length' => camunda_date_from_form($fromform->student_length)
+            'student_length' => camunda_date_from_form($fromform->student_length),
+            'filename'  => camunda_file($filename, 'application/pdf', $base64)
     ];
     // start process with key and data variables (method from locallib.php)
     start_process('bpx-mvp-process', $variables);
